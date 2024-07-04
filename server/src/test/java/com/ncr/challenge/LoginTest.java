@@ -1,11 +1,14 @@
 package com.ncr.challenge;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 
 import com.google.common.hash.Hashing;
 import com.ncr.challenge.entities.User;
@@ -16,13 +19,8 @@ import com.ncr.challenge.models.SessionInfoModel;
 import com.ncr.challenge.repositories.UserRepository;
 import com.ncr.challenge.services.LoginService;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.http.HttpStatus;
 
-
-@DataJpaTest
+@SpringBootTest
 public class LoginTest {
   
   @Autowired

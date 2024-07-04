@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import com.ncr.challenge.entities.Store;
 import com.ncr.challenge.entities.User;
 import com.ncr.challenge.repositories.StoreRepository;
 import com.ncr.challenge.repositories.UserRepository;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-
-@DataJpaTest
+@SpringBootTest
 public class UserTest {
 
   @Autowired

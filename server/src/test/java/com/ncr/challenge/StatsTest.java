@@ -1,19 +1,19 @@
 package com.ncr.challenge;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.ncr.challenge.entities.User;
 import com.ncr.challenge.models.StatsModel;
 import com.ncr.challenge.repositories.UserRepository;
 import com.ncr.challenge.services.StatsService;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-@DataJpaTest
-public class StatsTest {
+@SpringBootTest
+class StatsTest {
   
   @Autowired
   private UserRepository userRepository;

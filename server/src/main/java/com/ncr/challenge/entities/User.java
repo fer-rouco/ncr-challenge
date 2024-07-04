@@ -1,17 +1,16 @@
 package com.ncr.challenge.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(
-  name = "user",
+  name = "custom_user",
   uniqueConstraints = {
     @UniqueConstraint(name = "user_unique_user_idx", columnNames = {"userName"}),
     @UniqueConstraint(name = "user_unique_mail_idx", columnNames = {"mail"})
