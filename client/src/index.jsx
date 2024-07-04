@@ -15,11 +15,11 @@ import './index.css';
 // import reportWebVitals from './reportWebVitals';
 import Login from './pages/login';
 import PageNotFound from './pages/page-not-found';
+import ServerNotReady from './pages/server-not-ready';
 import Stats from './pages/stats';
 import Stores from './pages/stores';
 import User from './pages/user';
 import Users from './pages/users';
-import ServerNotReady from './pages/server-not-ready';
 import { getSessionInfo } from './services/session-service';
 // import Tooltip from './components/tooltip';
 
@@ -102,8 +102,3 @@ getSessionInfo()
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-// Hot Module Replacement (HMR) - Remove this snippet to remove HMR.
-// Learn more: https://www.snowpack.dev/#hot-module-replacement
-if (import.meta.hot) {
-  import.meta.hot.accept();
-}
