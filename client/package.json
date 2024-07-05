@@ -1,5 +1,4 @@
 {
-  "homepage": "https://fer-rouco.github.io/ncr-challenge",
   "name": "ncr-challenge",
   "version": "0.1.0",
   "private": true,
@@ -40,7 +39,6 @@
     "@testing-library/user-event": "^12.1.10",
     "@web/test-runner": "^0.13.18",
     "chai": "^4.3.4",
-    "gh-pages": "^6.1.1",
     "prettier": "^2.2.1"
   },
   "browserslist": {
