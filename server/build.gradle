@@ -30,7 +30,8 @@ dependencies {
 	implementation 'org.modelmapper:modelmapper:3.2.0'
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
-	implementation 'com.google.guava:guava:33.2.1-jre'
+	implementation 'com.google.guava:guava:11.0.2'
+
 
 
 	compileOnly 'org.projectlombok:lombok'
