@@ -1,14 +1,13 @@
 {
+  "homepage": "https://fer-rouco.github.io/ncr-challenge/",
   "name": "ncr-challenge",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "vite build --mode production",
     "serve": "vite preview",
-    "babel": "babel src -d build",
-    "babel-cache-clean": "rm -rf node_modules/.cache/babel-loader/*",
     "predeploy": "npm run build",
     "clean": "rm -rf ./build",
     "deploy": "gh-pages -d build",
