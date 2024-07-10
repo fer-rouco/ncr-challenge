@@ -1,7 +1,6 @@
 import Axios from 'axios';
-import configData from './../config.json';
 
-const SERVER_URL = configData.SERVER_URL;
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 async function processRequest(promise) {
   return new Promise(function (resolve, reject) {
