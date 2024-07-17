@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { getStores } from '../services/store-service';
-import Panel from '../components/panel';
 import styled from 'styled-components';
+import Panel from '../components/panel';
+import { getStores } from '../services/store-service';
 
 const StyledContainer = styled.div`
   padding: 5px;
-  background: #097890;
+  background: #20B2AF;
   color: #ffffff;
   margin: 5px;
   border-radius: 25px;
@@ -18,18 +18,21 @@ const StyledCircle = styled.div`
   border-radius: 50%;
   width: 34px;
   height: 34px;
-  padding: 3px;
   background: #ddd;
-  color: lightseagreen;
+  color: #3F51B5;
   text-align: center;
   font: 20px Arial, sans-serif;
   font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledText = styled.span`
   padding: 5px;
   font: 20px Cursive;
   font-weight: 800;
+  display: flex;
 `;
 
 export default function Stores(props) {
@@ -47,14 +50,14 @@ export default function Stores(props) {
       const storeItemList = storeList.map((store) => (
         <StyledContainer
           onClick={() => navigateToStore(store)}
-          className="col-md-8"
+          className="col-8"
           key={store.number}
         >
           <div className="row">
-            <div className="col-md-3">
+            <div className="col-2">
               <StyledCircle>{store.number}</StyledCircle>
             </div>
-            <div className="col-md-9">
+            <div className="col-10">
               <StyledText>{store.name}</StyledText>
             </div>
           </div>
