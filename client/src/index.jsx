@@ -37,7 +37,7 @@ getSessionInfo()
         <AlertMessageProvider>
           <AlertMessage></AlertMessage>
           <ErrorProvider>
-            <BrowserRouter>
+            <BrowserRouter basename={import.meta.env.VITE_PUBLIC_URL} >
               <SessionProvider>
                 <BarsProvider>
                   <NavBar title="NCR Challenge" />
