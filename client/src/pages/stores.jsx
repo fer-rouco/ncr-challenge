@@ -19,7 +19,7 @@ const StyledCircle = styled.div`
   width: 34px;
   height: 34px;
   background: #ddd;
-  color: #3F51B5;
+  color: #20B3B1;
   text-align: center;
   font: 20px Arial, sans-serif;
   font-weight: 800;
