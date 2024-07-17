@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useBars } from './bars-context';
 import { useSession } from '../../contexts/session-context';
 import useNavigationItems from '../../hooks/navigation-items';
-import Icon from '../icon';
 import useReactPath from '../../hooks/path-name';
+import Icon from '../icon';
+import { useBars } from './bars-context';
 
 const StyledSideBar = styled.div`
   z-index: 1000;
@@ -140,7 +140,7 @@ export default function SideBar(props) {
   }, [pathname, updateItems, sidebarOpen]);
 
   return (
-    <div>
+    <aside>
       <StyledSideBar
         className={
           'd-flex flex-column flex-shrink-0 p-3 bg-light sidebar ' +
@@ -200,6 +200,6 @@ export default function SideBar(props) {
           </ul>
         </div>
       </StyledSideBar>
-    </div>
+    </aside>
   );
 }

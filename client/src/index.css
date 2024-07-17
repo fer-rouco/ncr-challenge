@@ -13,6 +13,34 @@ code {
     monospace;
 }
 
+#root {
+  display: grid;
+  grid-template-areas:
+      "header header"
+      "aside main-content"
+      "footer footer";
+}
+
+#root:has(.sidebar.small) {
+  grid-template-columns: minmax(120px, 0);
+}
+
+#root:has(.sidebar.large) {
+  grid-template-columns: minmax(315px, 0);
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: aside;
+}
+
+.main-content {
+  grid-area: main-content;
+}
+
 .footer {
   position: absolute;
   height: 68px;
@@ -22,6 +50,7 @@ code {
   bottom: 0;
   width: 100%;
   z-index: -1;
+  grid-area: footer;
 }
 
 .developed-by {

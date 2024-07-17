@@ -40,10 +40,12 @@ getSessionInfo()
             <BrowserRouter basename={import.meta.env.VITE_PUBLIC_URL} >
               <SessionProvider>
                 <BarsProvider>
-                  <NavBar title="NCR Challenge" />
+                  <header>
+                    <NavBar title="NCR Challenge" />
+                  </header>
                   <SideBar icon="cart3"></SideBar>
                 </BarsProvider>
-                <div className="container">
+                <div className="main-content">
                   <div className="row justify-content-center">
                     <div className="col">
                       <Switch>

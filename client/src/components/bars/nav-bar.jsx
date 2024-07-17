@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useBars } from './bars-context';
 import useNavigationItems from '../../hooks/navigation-items';
 import Icon from '../icon';
+import { useBars } from './bars-context';
 // import { useGlobalEvent, useDebouncedFn } from "beautiful-react-hooks";
 
 const StyledNavToggler = styled.button`
@@ -14,7 +14,10 @@ const StyledNavText = styled.a`
   font-weight: bold;
   font-size: x-large;
   top: 4px;
-  position: absolute;
+
+  &.hide {
+    display: none;
+  }
 `;
 
 const StyledNavItem = styled(Link)`
@@ -51,6 +54,15 @@ const StyledNavSection = styled.div`
   z-index: 1;
 `;
 
+const StyledDivColTitle = styled.div`
+  &.sidebar-small {
+    min-width: 125px;
+  }
+  &.sidebar-large {
+    min-width: 315px;
+  }
+`;
+
 export default function NavBar(props) {
   // const { logOut } = useSession();
   const [navigationItems] = useNavigationItems();
@@ -69,61 +81,57 @@ export default function NavBar(props) {
   };
 
   const updateItems = () => {
-    if (navigationItems) {
-      itemsDom = (
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          {navigationItems.map((item, index) =>
+    return  (
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-inline-block">
+        {
+          navigationItems ? 
+          navigationItems.map((item, index) =>
             !item.condition || (item.condition && item.condition()) ? (
-              <StyledNavItem to={item.path} key={item.id}>
-                <div className="d-inline-block align-text-top">
-                  <StyledNavItemLeft className="fs-4">
-                    <Icon fontName={item.icon} medium color="#fff"></Icon>
-                  </StyledNavItemLeft>
-                  <StyledNavItemRight
-                    className="nav-link active"
-                    aria-current="page"
-                    href={item.path}
-                  >
-                    {item.text}
-                  </StyledNavItemRight>
-                </div>
+              <StyledNavItem to={item.path} key={item.id} className="d-inline-block align-text-top">
+                <StyledNavItemLeft className="fs-4">
+                  <Icon fontName={item.icon} medium color="#fff"></Icon>
+                </StyledNavItemLeft>
+                <StyledNavItemRight
+                  className="nav-link active"
+                  aria-current="page"
+                  href={item.path}
+                >
+                  {item.text}
+                </StyledNavItemRight>
               </StyledNavItem>
             ) : (
               ''
             ),
-          )}
-        </ul>
-      );
-    }
+          ) 
+          : 
+          <></>
+        }
+      </ul>
+    );
   };
 
-  let itemsDom;
-  updateItems();
-
   return (
-    <div>
-      <nav className="navbar navbar-expand-xxl navbar-dark bg-primary">
-        <div className="container-fluid">
-          <StyledNavSection>
-            <div className="row">
-              <div className="col-2 align-self-start">
-                <StyledNavToggler
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={onSidebarButtonClick}
-                >
-                  <span className="navbar-toggler-icon"></span>
-                </StyledNavToggler>
-                <StyledNavText className="navbar-brand d-inline-block" href="#">
-                  {props.title}
-                </StyledNavText>
-              </div>
+    <nav className="navbar navbar-expand-xxl navbar-dark bg-primary">
+      <div className="container-fluid">
+        <StyledNavSection>
+          <div className="row flex-nowrap">
+            <StyledDivColTitle className={`col-2 align-self-start ${sidebarOpen ? 'sidebar-large' : 'sidebar-small'}`}>
+              <StyledNavToggler
+                type="button"
+                className="btn btn-secondary"
+                onClick={onSidebarButtonClick}
+              >
+                <span className="navbar-toggler-icon"></span>
+              </StyledNavToggler>
+              <StyledNavText className={`navbar-brand ${!sidebarOpen ? 'hide' : 'd-inline-block'}`} href="#">
+                {props.title}
+              </StyledNavText>
+            </StyledDivColTitle>
 
-              <div className="col-8">{itemsDom}</div>
-            </div>
-          </StyledNavSection>
-        </div>
-      </nav>
-    </div>
+            <div className="col-8">{updateItems()}</div>
+          </div>
+        </StyledNavSection>
+      </div>
+    </nav>
   );
 }
